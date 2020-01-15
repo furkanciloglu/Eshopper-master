@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Eshopper.Areas.Admin.Models.Entites.category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="col-md-12 panel-warning">
+    <div class="content-box-header panel-heading">
+        <div class="panel-title ">Kategoriler</div>
+    </div>
+    <div class="content-box-large box-with-header">
+
+        <p>
+            @Html.ActionLink("Create New", "Create",null, new { @class = "btn btn-warning btn-xs" })
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.categoryName)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.categoryName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id },new{@class= "btn btn-primary btn-xs" }) |
+               
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-xs" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
